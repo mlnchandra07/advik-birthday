@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero';
+import EventDetails from '../components/EventDetails';
+import CountdownTimer from '../components/CountdownTimer';
+import Schedule from '../components/Schedule';
+import RSVPForm from '../components/RSVPForm';
+import Location from '../components/Location';
+import Footer from '../components/Footer';
+import FloatingBalloons from '../components/FloatingBalloons';
+---
+
+<Layout
+  title="Advik's 1st Birthday 🎪 | Circus Carnival | September 15"
+  description="Join us for a magical Luxury Circus Carnival as we celebrate Advik Baragada's First Birthday! September 15 at Park Hyatt, Hyderabad. RSVP now!"
+>
+  <!-- Floating balloons (load immediately) -->
+  <FloatingBalloons client:load />
+
+  <!-- Hero section with curtain animation -->
+  <Hero client:load />
+
+  <!-- Event Details -->
+  <EventDetails client:visible />
+
+  <!-- Countdown Timer -->
+  <CountdownTimer client:visible />
+
+  <!-- Schedule -->
+  <Schedule client:visible />
+
+  <!-- RSVP Form -->
+  <RSVPForm client:visible />
+
+  <!-- Location -->
+  <Location client:visible />
+
+  <!-- Footer -->
+  <Footer client:visible />
+</Layout>
+
+<style>
+  /* Print styles for PDF download */
+  @media print {
+    nav,
+    #balloon-container,
+    #sparkle-canvas,
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background: white;
+    }
+
+    section {
+      page-break-inside: avoid;
+    }
+  }
+</style>

@@ -1,0 +1,18 @@
+{
+  "name": "Advik's 1st Birthday - Circus Carnival",
+  "short_name": "Advik's Birthday",
+  "description": "Luxury Circus Carnival Birthday Invitation for Advik Baragada's 1st Birthday",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F2",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

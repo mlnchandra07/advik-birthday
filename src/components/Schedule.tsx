@@ -91,81 +91,19 @@ export default function Schedule() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Center vertical line */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 hidden md:block"
-            style={{
-              background: 'linear-gradient(180deg, transparent, #D4AF37 20%, #D4AF37 80%, transparent)',
-            }}
-          />
 
           {schedule.map((item, i) => (
             <motion.div
               key={item.event}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
-              className={`relative flex items-center mb-10 md:mb-12 ${
-                i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              } flex-row gap-4`}
+              className="relative flex items-center mb-8 md:mb-12 flex-row gap-4"
             >
-              {/* Content card */}
-              <div className="flex-1">
-                <motion.div
-                  whileHover={{ scale: 1.02, boxShadow: '0 15px 50px rgba(59,47,47,0.12)' }}
-                  className={`rounded-3xl p-6 relative overflow-hidden ${
-                    i % 2 === 0 ? 'md:mr-10 ml-12 md:ml-0' : 'md:ml-10 ml-12 md:ml-0'
-                  }`}
-                  style={{
-                    background: 'rgba(255,249,242,0.9)',
-                    border: `1px solid ${item.color}30`,
-                    boxShadow: '0 8px 32px rgba(59,47,47,0.06)',
-                    backdropFilter: 'blur(10px)',
-                  }}
-                >
-                  {/* Background accent */}
-                  <div
-                    className="absolute inset-0 rounded-3xl opacity-50"
-                    style={{ background: item.bg }}
-                  />
-                  <div className="relative z-10 flex items-start gap-4">
-                    <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-                      style={{ background: item.bg, border: `2px solid ${item.color}40` }}
-                    >
-                      {item.icon}
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span
-                          className="font-body text-xs font-bold tracking-widest"
-                          style={{ color: item.color }}
-                        >
-                          {item.time}
-                        </span>
-                      </div>
-                      <h3 className="font-display text-xl font-bold mb-1.5" style={{ color: '#3B2F2F' }}>
-                        {item.event}
-                      </h3>
-                      <p className="font-body text-sm leading-relaxed" style={{ color: '#6B4F4F' }}>
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                  {/* Corner ornament */}
-                  <span
-                    className="absolute top-3 right-3 text-sm opacity-40"
-                    style={{ color: item.color }}
-                  >
-                    ✦
-                  </span>
-                </motion.div>
-              </div>
-
-              {/* Center circle — visible on all screens as left accent on mobile */}
+              {/* Timeline dot — left on mobile, center on desktop */}
               <div
-                className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center z-10 text-lg"
+                className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center z-10 text-xl"
                 style={{
                   background: `linear-gradient(135deg, ${item.color}, ${item.color}CC)`,
                   boxShadow: `0 4px 20px ${item.color}60`,
@@ -175,8 +113,36 @@ export default function Schedule() {
                 {item.icon}
               </div>
 
-              {/* Empty side on desktop alternating layout */}
-              <div className="hidden md:block flex-1" />
+              {/* Content card */}
+              <motion.div
+                whileHover={{ scale: 1.02, boxShadow: '0 15px 50px rgba(59,47,47,0.12)' }}
+                className="flex-1 rounded-3xl p-5 md:p-6 relative overflow-hidden"
+                style={{
+                  background: 'rgba(255,249,242,0.9)',
+                  border: `1px solid ${item.color}30`,
+                  boxShadow: '0 8px 32px rgba(59,47,47,0.06)',
+                }}
+              >
+                <div
+                  className="absolute inset-0 rounded-3xl opacity-50"
+                  style={{ background: item.bg }}
+                />
+                <div className="relative z-10">
+                  <span
+                    className="font-body text-xs font-bold tracking-widest"
+                    style={{ color: item.color }}
+                  >
+                    {item.time}
+                  </span>
+                  <h3 className="font-display text-lg md:text-xl font-bold mt-0.5 mb-1.5" style={{ color: '#3B2F2F' }}>
+                    {item.event}
+                  </h3>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: '#6B4F4F' }}>
+                    {item.description}
+                  </p>
+                </div>
+                <span className="absolute top-3 right-3 text-sm opacity-40" style={{ color: item.color }}>✦</span>
+              </motion.div>
             </motion.div>
           ))}
         </div>

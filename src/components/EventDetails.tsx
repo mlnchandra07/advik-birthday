@@ -202,15 +202,15 @@ export default function EventDetails() {
             >
               ✦ Parents ✦
             </p>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <div>
-                <p className="font-display text-xl font-bold" style={{ color: '#3B2F2F' }}>
+                <p className="font-display text-lg sm:text-xl font-bold" style={{ color: '#3B2F2F' }}>
                   Pavan Raja
                 </p>
               </div>
               <span className="text-2xl">❤️</span>
               <div>
-                <p className="font-display text-xl font-bold" style={{ color: '#3B2F2F' }}>
+                <p className="font-display text-lg sm:text-xl font-bold" style={{ color: '#3B2F2F' }}>
                   Priyanka
                 </p>
               </div>
@@ -242,15 +242,15 @@ export default function EventDetails() {
             >
               ✦ Invited By ✦
             </p>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <div>
-                <p className="font-display text-xl font-bold" style={{ color: '#3B2F2F' }}>
+                <p className="font-display text-lg sm:text-xl font-bold" style={{ color: '#3B2F2F' }}>
                   Narasimha Rao
                 </p>
               </div>
               <span className="text-2xl">❤️</span>
               <div>
-                <p className="font-display text-xl font-bold" style={{ color: '#3B2F2F' }}>
+                <p className="font-display text-lg sm:text-xl font-bold" style={{ color: '#3B2F2F' }}>
                   Vijaya Lakshmi
                 </p>
               </div>

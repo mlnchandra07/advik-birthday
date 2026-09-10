@@ -369,7 +369,7 @@ export default function RSVPForm() {
                 </InputField>
 
                 {/* Guests */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <InputField label="Number of Adults" required>
                     <div className="flex items-center gap-3">
                       <button
@@ -425,7 +425,7 @@ export default function RSVPForm() {
 
                 {/* Attendance */}
                 <InputField label="Will You Attend?" required>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {([
                       { value: 'yes', label: '🎉 Yes, I\'ll be there!', color: '#D4AF37' },
                       { value: 'no', label: '😢 Sorry, can\'t make it', color: '#C62828' },

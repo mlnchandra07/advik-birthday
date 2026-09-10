@@ -263,7 +263,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto w-full">
         <AnimatePresence>
           {showContent && (
             <>
@@ -272,10 +272,10 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="mb-6"
+                className="mb-5"
               >
                 <span
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-body font-medium border"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-body font-medium border"
                   style={{
                     background: 'rgba(212, 175, 55, 0.15)',
                     borderColor: 'rgba(212, 175, 55, 0.4)',
@@ -295,19 +295,22 @@ export default function Hero() {
                 className="mb-4"
               >
                 <h1
-                  className="font-display text-3xl md:text-5xl font-bold text-white leading-tight"
-                  style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
+                  className="font-display font-bold text-white leading-tight"
+                  style={{
+                    fontSize: 'clamp(1.6rem, 6vw, 3rem)',
+                    textShadow: '0 2px 20px rgba(0,0,0,0.5)',
+                  }}
                 >
                   🎪 Our Little Star is
                 </h1>
                 <h1
-                  className="font-display text-4xl md:text-6xl font-black leading-tight mt-2"
+                  className="font-display font-black leading-tight mt-1"
                   style={{
+                    fontSize: 'clamp(2rem, 8vw, 3.75rem)',
                     background: 'linear-gradient(135deg, #D4AF37 0%, #F0D060 40%, #D4AF37 60%, #A68B2A 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
-                    textShadow: 'none',
                   }}
                 >
                   Turning One
@@ -319,11 +322,11 @@ export default function Hero() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
-                className="flex items-center justify-center gap-3 mb-8"
+                className="flex items-center justify-center gap-3 mb-6"
               >
-                <div className="h-px w-20" style={{ background: 'linear-gradient(to right, transparent, #D4AF37)' }} />
+                <div className="h-px w-16" style={{ background: 'linear-gradient(to right, transparent, #D4AF37)' }} />
                 <span style={{ color: '#D4AF37' }}>✦</span>
-                <div className="h-px w-20" style={{ background: 'linear-gradient(to left, transparent, #D4AF37)' }} />
+                <div className="h-px w-16" style={{ background: 'linear-gradient(to left, transparent, #D4AF37)' }} />
               </motion.div>
 
               {/* Crown */}
@@ -331,7 +334,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9, type: 'spring', stiffness: 200 }}
-                className="text-4xl mb-2"
+                className="text-3xl sm:text-4xl mb-1"
               >
                 👑
               </motion.div>
@@ -341,15 +344,15 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.0, duration: 0.8, ease: 'easeOut' }}
-                className="mb-8"
+                className="mb-6"
               >
                 <h2
-                  className="leading-tight mb-8"
+                  className="leading-tight"
                   style={{
                     fontFamily: '"Cormorant Garamond", Georgia, serif',
                     fontWeight: 600,
                     fontStyle: 'italic',
-                    fontSize: 'clamp(3rem, 10vw, 6rem)',
+                    fontSize: 'clamp(2.2rem, 9vw, 6rem)',
                     background: 'linear-gradient(135deg, #D4AF37 0%, #F0D060 30%, #FFD700 50%, #D4AF37 70%, #A68B2A 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -362,43 +365,32 @@ export default function Hero() {
                 </h2>
               </motion.div>
 
-              {/* Date badge */}
+              {/* Date / Time / Venue badges */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+                className="flex flex-col xs:flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8"
               >
-                <div
-                  className="px-6 py-3 rounded-2xl text-white font-body font-semibold text-lg"
-                  style={{
-                    background: 'rgba(255,255,255,0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(212,175,55,0.4)',
-                  }}
-                >
-                  📅 September 15, 2026
-                </div>
-                <div
-                  className="px-6 py-3 rounded-2xl text-white font-body font-semibold text-lg"
-                  style={{
-                    background: 'rgba(255,255,255,0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(212,175,55,0.4)',
-                  }}
-                >
-                  🕖 7:00 PM Onwards
-                </div>
-                <div
-                  className="px-6 py-3 rounded-2xl text-white font-body font-semibold text-lg"
-                  style={{
-                    background: 'rgba(255,255,255,0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(212,175,55,0.4)',
-                  }}
-                >
-                  📍 Park Hyatt
-                </div>
+                {[
+                  { icon: '📅', text: 'Sep 15, 2026' },
+                  { icon: '🕖', text: '7:00 PM Onwards' },
+                  { icon: '📍', text: 'Park Hyatt' },
+                ].map((b) => (
+                  <div
+                    key={b.text}
+                    className="px-4 py-2.5 rounded-2xl text-white font-body font-semibold"
+                    style={{
+                      fontSize: 'clamp(0.8rem, 3vw, 1rem)',
+                      background: 'rgba(255,255,255,0.1)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(212,175,55,0.4)',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {b.icon} {b.text}
+                  </div>
+                ))}
               </motion.div>
 
               {/* CTA Buttons */}
@@ -406,13 +398,13 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4, duration: 0.6 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                className="flex flex-col sm:flex-row items-center justify-center gap-3"
               >
                 <motion.a
                   href="#rsvp"
                   whileHover={{ scale: 1.05, boxShadow: '0 8px 40px rgba(212,175,55,0.6)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 rounded-full font-body font-bold text-lg text-black inline-block"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full font-body font-bold text-base text-black inline-block text-center"
                   style={{
                     background: 'linear-gradient(135deg, #D4AF37 0%, #F0D060 50%, #D4AF37 100%)',
                     boxShadow: '0 4px 25px rgba(212,175,55,0.4)',
@@ -428,7 +420,7 @@ export default function Hero() {
                   href="#details"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 rounded-full font-body font-semibold text-lg text-white border-2 inline-block"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full font-body font-semibold text-base text-white border-2 inline-block text-center"
                   style={{ borderColor: 'rgba(212,175,55,0.6)' }}
                   onClick={(e) => {
                     e.preventDefault();

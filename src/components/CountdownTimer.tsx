@@ -50,7 +50,7 @@ function FlipCard({ value, label, color }: { value: number; label: string; color
         <motion.div
           animate={flip ? { rotateX: [0, -90, 0] } : {}}
           transition={{ duration: 0.3 }}
-          className="relative w-20 h-20 md:w-28 md:h-28 rounded-2xl flex items-center justify-center overflow-hidden"
+          className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-2xl flex items-center justify-center overflow-hidden"
           style={{
             background: `linear-gradient(135deg, rgba(255,249,242,0.95) 0%, rgba(255,249,242,0.85) 100%)`,
             border: `2px solid ${color}40`,
@@ -65,7 +65,7 @@ function FlipCard({ value, label, color }: { value: number; label: string; color
           <div className="absolute left-0 right-0 top-1/2 h-px" style={{ background: `${color}30`, zIndex: 1 }} />
           {/* Number */}
           <span
-            className="relative z-10 font-display text-4xl md:text-5xl font-black tracking-tight"
+            className="relative z-10 font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight"
             style={{ color: '#3B2F2F' }}
           >
             {display}
@@ -210,7 +210,7 @@ export default function CountdownTimer() {
         ) : (
           <>
             {/* Countdown display */}
-            <div className="flex items-start justify-center gap-3 md:gap-6">
+            <div className="flex items-start justify-center gap-1 sm:gap-3 md:gap-6">
               {units.map((unit, i) => (
                 <>
                   <FlipCard key={unit.label} value={unit.value} label={unit.label} color={unit.color} />

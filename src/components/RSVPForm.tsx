@@ -61,34 +61,19 @@ function openWhatsApp(data: FormData) {
   window.open(url, '_blank');
 }
 
-async function fireConfetti() {
-  const { default: confetti } = await import('canvas-confetti');
-  const colors = ['#D4AF37', '#F0D060', '#C62828', '#1F4BA5', '#FF6B35', '#ffffff'];
-
-  // Multiple bursts
-  const burst = (x: number, y: number) => {
-    confetti({
-      particleCount: 80,
-      spread: 80,
-      origin: { x, y },
-      colors,
-      startVelocity: 45,
-    });
-  };
-
-  burst(0.2, 0.5);
-  setTimeout(() => burst(0.8, 0.5), 200);
-  setTimeout(() => burst(0.5, 0.3), 400);
-  setTimeout(() => {
-    confetti({
-      particleCount: 150,
-      spread: 120,
-      origin: { x: 0.5, y: 0.6 },
-      colors,
-      shapes: ['star'],
-      startVelocity: 60,
-    });
-  }, 600);
+function fireConfetti() {
+  import('canvas-confetti').then(({ default: confetti }) => {
+    const colors = ['#D4AF37', '#F0D060', '#C62828', '#1F4BA5', '#FF6B35', '#ffffff'];
+    const burst = (x: number, y: number) => {
+      confetti({ particleCount: 80, spread: 80, origin: { x, y }, colors, startVelocity: 45 });
+    };
+    burst(0.2, 0.5);
+    setTimeout(() => burst(0.8, 0.5), 200);
+    setTimeout(() => burst(0.5, 0.3), 400);
+    setTimeout(() => {
+      confetti({ particleCount: 150, spread: 120, origin: { x: 0.5, y: 0.6 }, colors, shapes: ['star'], startVelocity: 60 });
+    }, 600);
+  });
 }
 
 function InputField({
@@ -150,12 +135,13 @@ export default function RSVPForm() {
     setError('');
     setLoading(true);
 
-    // Show success state first, then open WhatsApp
+    // Open WhatsApp FIRST — must be synchronous inside user gesture
+    openWhatsApp(form);
+
+    // Then show success UI and confetti
     setSubmitted(true);
-    await fireConfetti();
-    // Small delay so the guest sees the thank-you screen before WhatsApp opens
-    setTimeout(() => openWhatsApp(form), 800);
     setLoading(false);
+    fireConfetti();
   };
 
   const getInputStyle = (field: string) => ({

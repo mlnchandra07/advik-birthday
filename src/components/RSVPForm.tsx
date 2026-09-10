@@ -10,8 +10,6 @@ interface FormData {
   adults: number;
   kids: number;
   attending: 'yes' | 'no' | '';
-  dietary: string;
-  message: string;
 }
 
 const initialForm: FormData = {
@@ -19,8 +17,6 @@ const initialForm: FormData = {
   adults: 1,
   kids: 0,
   attending: '',
-  dietary: '',
-  message: '',
 };
 
 function buildWhatsAppMessage(data: FormData): string {
@@ -37,9 +33,6 @@ function buildWhatsAppMessage(data: FormData): string {
     `👥 *Guests:* ${totalGuests} total`,
     `   • Adults: ${data.adults}`,
     `   • Kids: ${data.kids}`,
-    data.dietary ? `🥗 *Dietary:* ${data.dietary}` : null,
-    ``,
-    data.message ? `💬 *Message:* ${data.message}` : null,
     `━━━━━━━━━━━━━━━━━━━━`,
     `📅 *Event:* September 15, 2026`,
     `🕖 *Time:* 7:00 PM Onwards`,
@@ -410,36 +403,6 @@ export default function RSVPForm() {
                       </label>
                     ))}
                   </div>
-                </InputField>
-
-                {/* Dietary */}
-                <InputField label="Dietary Requirements">
-                  <input
-                    type="text"
-                    placeholder="Vegetarian, Vegan, Allergies, etc."
-                    value={form.dietary}
-                    onChange={(e) => update('dietary', e.target.value)}
-                    onFocus={() => setFocusedField('dietary')}
-                    onBlur={() => setFocusedField(null)}
-                    className={inputClass}
-                    style={getInputStyle('dietary')}
-                    aria-label="Dietary requirements"
-                  />
-                </InputField>
-
-                {/* Message */}
-                <InputField label="Leave a Message">
-                  <textarea
-                    rows={3}
-                    placeholder="Share your excitement or a special wish for Advik! 🎈"
-                    value={form.message}
-                    onChange={(e) => update('message', e.target.value)}
-                    onFocus={() => setFocusedField('message')}
-                    onBlur={() => setFocusedField(null)}
-                    className={inputClass}
-                    style={{ ...getInputStyle('message'), resize: 'none' }}
-                    aria-label="Message"
-                  />
                 </InputField>
 
                 {/* Error */}

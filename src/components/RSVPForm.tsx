@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // ✅ Replace with the admin's WhatsApp number (with country code, no + or spaces)
 // Example: India +91 98765 43210  →  919876543210
-const ADMIN_WHATSAPP = '918639055564';
+const ADMIN_WHATSAPP = '918008088890';
 
 interface FormData {
   name: string;

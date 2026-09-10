@@ -431,24 +431,7 @@ export default function Hero() {
                 </motion.a>
               </motion.div>
 
-              {/* Scroll indicator */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 0.8 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2"
-              >
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="flex flex-col items-center gap-2 text-white/60"
-                >
-                  <span className="text-xs font-body">Scroll to explore</span>
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M5 7l5 5 5-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </motion.div>
-              </motion.div>
+
             </>
           )}
         </AnimatePresence>
@@ -460,6 +443,29 @@ export default function Hero() {
           <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#FFF9F2" />
         </svg>
       </div>
+
+      {/* Scroll indicator — fixed at bottom center of hero */}
+      <AnimatePresence>
+        {showContent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.8 }}
+            className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="flex flex-col items-center gap-1.5 text-white/60"
+            >
+              <span className="text-xs font-body tracking-widest uppercase">Scroll to explore</span>
+              <svg width="20" height="20" viewBox="0 0 20 20">
+                <path d="M5 7l5 5 5-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

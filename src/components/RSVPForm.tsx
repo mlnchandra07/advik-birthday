@@ -7,8 +7,6 @@ const ADMIN_WHATSAPP = '918008088890';
 
 interface FormData {
   name: string;
-  mobile: string;
-  email: string;
   adults: number;
   kids: number;
   attending: 'yes' | 'no' | '';
@@ -18,8 +16,6 @@ interface FormData {
 
 const initialForm: FormData = {
   name: '',
-  mobile: '',
-  email: '',
   adults: 1,
   kids: 0,
   attending: '',
@@ -35,8 +31,6 @@ function buildWhatsAppMessage(data: FormData): string {
     `🎪 *RSVP — Advik's 1st Birthday*`,
     `━━━━━━━━━━━━━━━━━━━━`,
     `👤 *Name:* ${data.name}`,
-    `📱 *Mobile:* ${data.mobile}`,
-    data.email ? `📧 *Email:* ${data.email}` : null,
     ``,
     `🎟️ *Attendance:* ${attendingText}`,
     ``,
@@ -124,12 +118,8 @@ export default function RSVPForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.mobile || !form.attending) {
+    if (!form.name || !form.attending) {
       setError('Please fill in all required fields.');
-      return;
-    }
-    if (form.mobile.replace(/\D/g, '').length < 10) {
-      setError('Please enter a valid mobile number.');
       return;
     }
     setError('');
@@ -320,37 +310,6 @@ export default function RSVPForm() {
                     style={getInputStyle('name')}
                     required
                     aria-label="Your name"
-                  />
-                </InputField>
-
-                {/* Mobile */}
-                <InputField label="Mobile Number" required>
-                  <input
-                    type="tel"
-                    placeholder="+91 00000 00000"
-                    value={form.mobile}
-                    onChange={(e) => update('mobile', e.target.value)}
-                    onFocus={() => setFocusedField('mobile')}
-                    onBlur={() => setFocusedField(null)}
-                    className={inputClass}
-                    style={getInputStyle('mobile')}
-                    required
-                    aria-label="Mobile number"
-                  />
-                </InputField>
-
-                {/* Email */}
-                <InputField label="Email Address (optional)">
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={form.email}
-                    onChange={(e) => update('email', e.target.value)}
-                    onFocus={() => setFocusedField('email')}
-                    onBlur={() => setFocusedField(null)}
-                    className={inputClass}
-                    style={getInputStyle('email')}
-                    aria-label="Email address"
                   />
                 </InputField>
 

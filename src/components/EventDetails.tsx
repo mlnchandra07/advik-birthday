@@ -205,7 +205,7 @@ export default function EventDetails() {
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <div>
                 <p className="font-display text-lg sm:text-xl font-bold" style={{ color: '#3B2F2F' }}>
-                  Pavan Raja
+                  Chris
                 </p>
               </div>
               <span className="text-2xl">❤️</span>
